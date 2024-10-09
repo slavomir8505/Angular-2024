@@ -1,0 +1,14 @@
+<div class="book">
+    <h1>Title: {{ book.title }}</h1>
+    <h2>Author: {{ book.author }}</h2>
+    <p>Genre: {{ book.genre }}</p>
+    <p>Pages: {{ book.pages }}</p>
+
+<div class="available">
+    <a href="">
+    <button *ngIf="book.available">Rezervuj</button>
+    </a>
+    <p *ngIf="!book.available">Momentalne nedostupné</p>
+</div>
+
+    <br>

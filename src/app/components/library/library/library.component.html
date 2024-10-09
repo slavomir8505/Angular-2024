@@ -5,7 +5,4 @@
     <button>Vyhľadať</button>
 </div>
 
-
-<div class="books">
-    <app-book [bookList]="bookList"></app-book>
-</div>
+<app-book *ngFor="let book of books" [book]="book"></app-book>
