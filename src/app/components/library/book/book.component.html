@@ -6,9 +6,11 @@
 
 <div class="available">
     <a href="">
-    <button *ngIf="book.available">Rezervuj</button>
+    <button mat-flat-button *ngIf="book.available">Dostupné</button>
     </a>
-    <p *ngIf="!book.available">Momentalne nedostupné</p>
+    <button mat-flat-button disabled="" *ngIf="!book.available">Nedostupné</button>
 </div>
 
     <br>
+
+    

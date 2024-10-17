@@ -10,5 +10,5 @@ import { LibraryComponent } from "./components/library/library/library.component
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'timo-angular';
+  title = 'angular';
 }
