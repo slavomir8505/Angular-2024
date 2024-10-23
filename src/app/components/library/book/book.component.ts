@@ -16,5 +16,7 @@ import {MatButtonModule} from '@angular/material/button';
 
 export class BookComponent {
   @Input() book!: Book;
+
+  
 }
 
