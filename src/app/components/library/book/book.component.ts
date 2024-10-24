@@ -9,13 +9,18 @@ import {MatButtonModule} from '@angular/material/button';
 @Component({
   selector: 'app-book',
   standalone: true,
-  imports: [CommonModule, NgIf,MatButtonModule, MatDividerModule, MatIconModule],
+  imports: [CommonModule, NgIf, MatButtonModule, MatDividerModule, MatIconModule],
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css']
 })
 
 export class BookComponent {
   @Input() book!: Book;
+
+  onOrder() {
+    this.book.available=false
+
+  }
 
   
 }

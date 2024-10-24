@@ -7,8 +7,9 @@
 <div class="available">
     <a href="">
     </a>
-    <button mat-flat-button *ngIf="book.available">Dostupné</button>
-    <button mat-flat-button disabled="" *ngIf="!book.available">Nedostupné</button>
+    <button mat-flat-button *ngIf="book.available" (click)="onOrder()">Dostupné</button>
+    <p *ngIf="!book.available">This book is unavailable</p>
+    
 </div>
 
     <br>
