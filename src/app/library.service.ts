@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from './models/book';
+import { of, Observable, delay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -40,8 +41,10 @@ export class LibraryService {
     },
 
   ];
-  constructor() { }
-  getAllBooks(): Book[]{
-    return this.books;
-  }
+  constructor(){}
+  getAllBooks(){
+    return of(this.books).pipe(delay(
+      2000
+    ))
+  };
 }

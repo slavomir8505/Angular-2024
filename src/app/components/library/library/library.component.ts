@@ -7,6 +7,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { LibraryService } from '../../../library.service';
 
+
 @Component({
   selector: 'app-library',
   standalone: true,
@@ -16,10 +17,12 @@ import { LibraryService } from '../../../library.service';
 })
 
 export class LibraryComponent {
-  libraryservice: LibraryService=inject(LibraryService)
-
-  books: Book[]
-  constructor() {
-    this.books=this.libraryservice.getAllBooks()
+  
+  books!: Book[]
+libraryservice: LibraryService=inject(LibraryService)
+  constructor(){
+    this.libraryservice.getAllBooks().subscribe(list=>{
+      this.books = list
+    })
   }
 }
