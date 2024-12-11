@@ -1,50 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Book } from './models/book';
-import { of, Observable, delay } from 'rxjs';
+import { of, Observable, delay,pipe,throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { catchError,tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LibraryService {
-  books: Book[] = [
-    {
-      id: 1,
-      title: 'Harry Potter 1 a Kameň mudrcov',
-      author: 'Joanne K. Rowling',
-      genre: 'Fantasy',
-      available: true,
-      pages: '256 pages'
-    },
-    {
-      id: 2,
-      title: 'Harry Potter 2 - A tajomná komnata',
-      author: 'Joanne K. Rowling',
-      genre: 'Fantasy',
-      available: false,
-      pages: '360 pages'
-    },
-    {
-      id: 3,
-      title: 'Harry Potter 3 - A väzeň z Azkabanu',
-      author: 'Joanne K. Rowling',
-      genre: 'Fantasy',
-      available: true,
-      pages: '440 pages'
-    },
-    {
-      id: 4,
-      title: 'Harry Potter 4 - A ohnivá čaša',
-      author: 'Joanne K. Rowling',
-      genre: 'Fantasy',
-      available: true,
-      pages: '712 pages'
-    },
 
-  ];
-  constructor(){}
-  getAllBooks(){
-    return of(this.books).pipe(delay(
-      2000
-    ))
-  };
+  link: string = "https://run.mocky.io/v3/ccdcd430-6e14-4380-8ed4-de783c47211b"
+
+  constructor(private http: HttpClient) { }
+
+  getAllBooks(): Observable<Book[]> {
+    return this.http
+    .get<Book[]>(this.link)
+    .pipe(delay(2000),tap((data) => console.log('GET data:', data)));
+  }
 }

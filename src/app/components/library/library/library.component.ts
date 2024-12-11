@@ -6,6 +6,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { LibraryService } from '../../../library.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { LibraryService } from '../../../library.service';
   standalone: true,
   imports: [CommonModule, BookComponent, MatButtonModule, MatDividerModule, MatIconModule],
   templateUrl: './library.component.html',
-  styleUrl: './library.component.css'
+  styleUrl: './library.component.css' 
 })
 
 export class LibraryComponent {
