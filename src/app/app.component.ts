@@ -10,7 +10,7 @@ import { RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, RouterOutlet, LibraryComponent,MatToolbarModule, MatButtonModule, MatIconModule, RouterLink, RouterLinkActive],
+  imports: [RouterModule, RouterOutlet,MatToolbarModule, MatButtonModule, MatIconModule, RouterLink, RouterLinkActive,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
