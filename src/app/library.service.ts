@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from './models/book';
-import { of, Observable, delay,pipe,throwError } from 'rxjs';
+import { of, Observable, delay,pipe,throwError, map} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { catchError,tap } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -55,9 +55,10 @@ export class LibraryService {
     this.store.collection('books').add(data);
   }
   getAllBooks(): Observable<Book[]> {
-  /*  return this.http
-    .get<Book[]>(this.link)
-    .pipe(delay(2000),tap((data) => console.log('GET data:', data)));*/
-    return of()
-  }
+    return this.store.collection<Book>('books').get().pipe(
+      map(snapshot => 
+        snapshot.docs.map(doc => ({ ...(doc.data()) as Book}))
+      )
+    )
+  } 
 }
